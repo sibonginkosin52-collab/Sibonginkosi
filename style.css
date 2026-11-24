@@ -1,12 +1,19 @@
 
-/* COLOUR PALETTE */
+/* ROYAL LAVENDER & BLUSH PINK COLOUR PALETTE */
 :root {
-  --pink: #F6E6E5;
-  --cream: #FFF9F6;
-  --rose: #D58D9A;
-  --dark: #38272D;
-  --muted: #806D73;
-  --white: #FFFFFF;
+  --lavender: #E6D6FF;
+  --soft-purple: #C8A2E8;
+  --blush-pink: #F6DCE8;
+  --cream-white: #FFF8FC;
+  --royal-plum: #75458C;
+  --deep-charcoal: #30243A;
+
+  /* Existing variable names retained */
+  --cream: var(--cream-white);
+  --pink: var(--blush-pink);
+  --rose: var(--royal-plum);
+  --dark: var(--deep-charcoal);
+  --muted: #76677D;
 }
 
 /* GENERAL STYLING */
@@ -19,14 +26,14 @@
 
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--cream);
-  color: var(--dark);
+  background: var(--cream-white);
+  color: var(--deep-charcoal);
   line-height: 1.7;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--royal-plum);
 }
 
 section {
@@ -44,8 +51,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 249, 246, 0.97);
-  border-bottom: 1px solid #f0dddd;
+  background: rgba(255, 248, 252, 0.97);
+  border-bottom: 1px solid var(--lavender);
 }
 
 nav {
@@ -60,7 +67,7 @@ nav {
 .logo {
   font-size: 25px;
   font-weight: 800;
-  color: var(--rose);
+  color: var(--royal-plum);
 }
 
 .nav-links {
@@ -72,21 +79,24 @@ nav {
 .nav-links a {
   font-size: 14px;
   font-weight: 600;
+  color: var(--deep-charcoal);
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: var(--rose);
+  color: var(--soft-purple);
 }
 
 .menu-btn {
   display: none;
   border: none;
   background: none;
+  color: var(--royal-plum);
   font-size: 26px;
   cursor: pointer;
 }
 
+/* HERO SECTION */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -94,8 +104,11 @@ nav {
   justify-content: space-between;
   gap: 40px;
   padding: 60px 8%;
-  background: var(--pink);
-  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    var(--lavender),
+    var(--blush-pink)
+  );
 }
 
 .hero-content {
@@ -104,7 +117,7 @@ nav {
 }
 
 .small-heading {
-  color: var(--muted);
+  color: var(--royal-plum);
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -116,20 +129,53 @@ nav {
   font-size: clamp(38px, 5vw, 68px);
   font-weight: 800;
   line-height: 1.15;
-  color: var(--dark);
+  color: var(--deep-charcoal);
   margin: 0 0 20px 0;
 }
 
-/* Forces "Sibonginkosi Ndlovu." onto the second line */
 .hero h1 span {
   display: block;
-  color: var(--rose);
+  color: var(--royal-plum);
+}
+
+.hero h1 .typing-text::after {
+  content: "";
+  display: inline-block;
+  height: 0.9em;
+  margin-left: 4px;
+  border-right: 3px solid currentColor;
+  vertical-align: -0.08em;
+  animation: typing-caret 0.8s steps(1) infinite;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes typing-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .typing-text::after {
+    animation: none;
+  }
 }
 
 .hero h2 {
   font-size: clamp(18px, 2.2vw, 22px);
   font-weight: 700;
-  color: var(--dark);
+  color: var(--deep-charcoal);
   margin: 0 0 15px 0;
 }
 
@@ -157,8 +203,8 @@ nav {
   object-fit: cover;
   object-position: center top;
   border-radius: 190px 190px 25px 25px;
-  border: 8px solid #ffffff;
-  box-shadow: 0 15px 35px rgba(56, 39, 45, 0.09);
+  border: 8px solid var(--cream-white);
+  box-shadow: 0 15px 35px rgba(48, 36, 58, 0.12);
 }
 
 /* BUTTONS */
@@ -175,9 +221,9 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  background: var(--rose);
-  color: #ffffff;
-  border: 1.5px solid var(--rose);
+  background: var(--royal-plum);
+  color: var(--cream-white);
+  border: 1.5px solid var(--royal-plum);
   border-radius: 30px;
   font-size: 14px;
   font-weight: 700;
@@ -187,27 +233,28 @@ nav {
 }
 
 .btn:hover {
-  background: var(--dark);
-  border-color: var(--dark);
+  background: var(--deep-charcoal);
+  border-color: var(--deep-charcoal);
   transform: translateY(-3px);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1.5px solid var(--rose);
-  color: var(--dark);
+  border: 1.5px solid var(--royal-plum);
+  color: var(--royal-plum);
 }
 
 .btn-outline:hover {
-  background: var(--rose);
-  border-color: var(--rose);
-  color: #ffffff;
+  background: var(--royal-plum);
+  border-color: var(--royal-plum);
+  color: var(--cream-white);
 }
 
 /* SECTION HEADINGS */
 .section-title {
   font-size: 35px;
   margin: 12px 0 20px;
+  color: var(--royal-plum);
 }
 
 .section-intro {
@@ -229,18 +276,19 @@ nav {
 }
 
 .about-card {
-  background: var(--pink);
+  background: var(--lavender);
   padding: 40px;
   border-radius: 20px;
 }
 
 .about-card h3 {
   margin: 15px 0 5px;
+  color: var(--royal-plum);
 }
 
-/* PINK SECTION */
+/* LAVENDER SECTION */
 .pink-section {
-  background: var(--pink);
+  background: var(--blush-pink);
 }
 
 /* SKILLS */
@@ -251,20 +299,21 @@ nav {
 }
 
 .skill-card {
-  background: white;
+  background: var(--cream-white);
   padding: 25px;
   border-radius: 16px;
-  border: 1px solid #f0dddd;
+  border: 1px solid var(--lavender);
   transition: 0.3s;
 }
 
 .skill-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px #38272d12;
+  box-shadow: 0 10px 25px rgba(117, 69, 140, 0.12);
 }
 
 .skill-card h3 {
   margin-bottom: 10px;
+  color: var(--royal-plum);
 }
 
 .skill-card p {
@@ -280,8 +329,8 @@ nav {
 }
 
 .project-card {
-  background: white;
-  border: 1px solid #f0dddd;
+  background: var(--cream-white);
+  border: 1px solid var(--lavender);
   border-radius: 16px;
   padding: 28px;
   min-height: 250px;
@@ -292,11 +341,11 @@ nav {
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px #38272d12;
+  box-shadow: 0 12px 30px rgba(117, 69, 140, 0.12);
 }
 
 .project-category {
-  color: var(--rose);
+  color: var(--royal-plum);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -306,6 +355,7 @@ nav {
 
 .project-card h3 {
   margin-bottom: 10px;
+  color: var(--royal-plum);
 }
 
 .project-card p {
@@ -316,7 +366,7 @@ nav {
 
 .project-card a,
 .cert-card a {
-  color: var(--rose);
+  color: var(--royal-plum);
   font-weight: 700;
   font-size: 14px;
   margin-top: auto;
@@ -324,7 +374,7 @@ nav {
 
 .project-card a:hover,
 .cert-card a:hover {
-  color: var(--dark);
+  color: var(--soft-purple);
 }
 
 /* STRATEGY */
@@ -335,13 +385,13 @@ nav {
 }
 
 .strategy-item {
-  background: var(--cream);
+  background: var(--lavender);
   padding: 25px;
   border-radius: 15px;
 }
 
 .strategy-item h3 {
-  color: var(--rose);
+  color: var(--royal-plum);
   margin-bottom: 10px;
 }
 
@@ -353,10 +403,10 @@ nav {
 }
 
 .cert-card {
-  background: white;
+  background: var(--cream-white);
   padding: 25px;
   border-radius: 16px;
-  border: 1px solid #f0dddd;
+  border: 1px solid var(--lavender);
   display: flex;
   flex-direction: column;
   min-height: 190px;
@@ -364,6 +414,7 @@ nav {
 
 .cert-card h3 {
   margin-bottom: 10px;
+  color: var(--royal-plum);
 }
 
 .cert-card p {
@@ -373,39 +424,35 @@ nav {
 }
 
 /* CONTACT */
-.contact {
-  background: var(--pink);
-  text-align: center;
-}
-
-.contact p {
-  color: var(--muted);
-  margin: 12px 0;
-}
-
 .contact-links {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 25px;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.contact-links a {
-  color: var(--rose);
-  font-weight: 700;
+.contact-links a,
+.contact-links p {
+  color: var(--royal-plum);
+  text-decoration: none;
+  font-size: 15px;
 }
 
 .contact-links a:hover {
-  color: var(--dark);
+  color: var(--soft-purple);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
-  color: var(--muted);
+  background: var(--deep-charcoal);
+  color: var(--cream-white);
   font-size: 13px;
+}
+
+footer a {
+  color: var(--blush-pink);
 }
 
 /* RESPONSIVE DESIGN */
@@ -417,7 +464,7 @@ footer {
     top: 65px;
     left: 0;
     width: 100%;
-    background: var(--cream);
+    background: var(--cream-white);
     padding: 25px;
     flex-direction: column;
     text-align: center;
@@ -457,6 +504,17 @@ footer {
 
   .hero {
     min-height: 75vh;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 300px;
+    height: 350px;
+  }
+
+  .buttons {
+    justify-content: center;
   }
 
   .section-title {
